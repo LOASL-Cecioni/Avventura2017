@@ -1,7 +1,7 @@
 #include<iostream>
 #include<string>
 #include "Object.cpp"
-#include "Room.cpp"
+
 using namespace std;
 const int mas=10;  //massima dimensione inventario=10
 
