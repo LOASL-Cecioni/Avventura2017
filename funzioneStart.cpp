@@ -19,15 +19,15 @@ int start()
 	cout<<"digita 'manuale' per accedere al manuale delle istruzioni"<<endl;
 	cout<<"digita 'gioca' per iniziare a giocare!"<<endl;
 	cin>>chosen;
-	if(chosen=="menu"|| chosen==1)
+	if(chosen=="menu")
 	{
 		return 1;
 	} 
-	else if (chosen=="manuale"||chosen==2)
+	else if (chosen=="manuale")
 	{
 		return 2;
 	}
-	else if (chosen=="gioca"||chosen==3)
+	else if (chosen=="gioca")
 	{
 		return 3;
 	}
