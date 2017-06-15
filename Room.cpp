@@ -23,6 +23,7 @@ class Room
 	public:
 		//costruttore
 		//Room()	//serve l'upload da file
+		//-----------------------------------
 		
 		//metodi
 		//GETTERS
@@ -34,7 +35,35 @@ class Room
 			return roomNumber;
 		}
 		
+		//metodo che ritorna un oggetto su una parete
+		//passo come parametro il numero della della parete
+		// e il numero dell'oggetto che si vuole ritornare 
+		Object getObjectsOnWall (int in_wallNumber,int in_objectNumber)
+		{ 
+			if (wall1.wallNumber==in_wallNumber)
+			{
+				return wall1.onWall[in_objectNumber];
+			} else if (wall2.wallNumber==in_wallNumber)
+			{
+				return wall2.onWall[in_objectNumber];
+			} else if (wall3.wallNumber==in_wallNumber)
+			{
+				return wall3.onWall[in_objectNumber];
+			} else if (wall4.wallNumber==in_wallNumber)
+			{
+				return wall4.onWall[in_objectNumber];
+			} else if (wall5.wallNumber==in_wallNumber)
+			{
+				return wall5.onWall[in_objectNumber];
+			}
+		}
 		
+		//SETTERS
 		
-	
+		//metodo che modifica il numero della stanza
+		//modifica la variabile RoomNumber
+		void setRoomNumber(int in_roomNumber)
+		{
+			roomNumber=in_roomNumber;
+		}
 };
