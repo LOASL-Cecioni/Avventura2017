@@ -1,5 +1,6 @@
 #include<iostream>
 #include<string>
+#include<fstream>
 #include "Object.cpp"
 
 using namespace std;
@@ -23,7 +24,25 @@ class Room
 	public:
 		//costruttore
 		//Room()	//serve l'upload da file
-		//-----------------------------------
+		
+		
+		//---------------------------------------------------------------------------
+		//come si fa l'upload da fie esistente
+		/*
+		ifstream f("file.txt");
+		string s;
+		if(!f) 
+		{
+        	cout< <"Il file non esiste!";
+   		}
+		while(f.good()) //fino a quando c'è qualcosa da leggere ..
+    	{
+        	getline(f, s); //legge tutta la riga dal file e la mette nella variabile s
+        	cout<<s<<endl;
+    	}
+    	f.close(); //chiude il file
+    	*/
+    	//----------------------------------------------------------------------------
 		
 		//metodi
 		//GETTERS
@@ -37,7 +56,8 @@ class Room
 		
 		//metodo che ritorna un oggetto su una parete
 		//passo come parametro il numero della della parete
-		// e il numero dell'oggetto che si vuole ritornare 
+		//e il numero dell'oggetto che si vuole ritornare 
+		//(con un for si possono ottenre tutti e 5 gli oggetti sulla parete)
 		Object getObjectsOnWall (int in_wallNumber,int in_objectNumber)
 		{ 
 			if (wall1.wallNumber==in_wallNumber)
