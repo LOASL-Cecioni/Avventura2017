@@ -1,4 +1,4 @@
-
+#include "Player.cpp"
 #include <iostream>
 #include <string>
 using namespace std;
@@ -10,7 +10,6 @@ using namespace std;
 //ritorna 1 per aprire il menu
 //ritorna 2 per aprire il manuale
 //ritorna 3 per iniziare a giocare
-
 int start()
 {
 	string chosen;
@@ -21,7 +20,6 @@ int start()
 	cout<<" benvenuto nel gioco AVVENTURA 2017! "<<endl;
 	cout<<"digita 'menu' per accedere al menu principale"<<endl;
 	cout<<"digita 'manuale' per accedere al manuale delle istruzioni"<<endl;
-	cout<<"digita 'gioca' per iniziare a giocare!"<<endl;
 	cin>>chosen;
 	if(chosen=="menu")
 	{
@@ -30,10 +28,6 @@ int start()
 	else if (chosen=="manuale")
 	{
 		return 2;
-	}
-	else if (chosen=="gioca")
-	{
-		return 3;
 	}
 	else 
 	{
@@ -91,10 +85,93 @@ void guide()
 	}
 }
 
+//funzione che visualizza il menu principale
+
+//funzione di scrittura
+//appartiene alla funzione menu
+void scrittura (string menu[])
+{
+	for(int i=0; i<3; i++)
+	{
+		cout<<menu[i]<<endl;
+	}
+} 
+	
+//funzione di configurazione stanza da comando
+//appartiene alla funzione menu
+void configuraStanzaDaComando()
+{  
+   int roomNumber;
+   do  {cout<<"Inserisci il numero della stanza"<<endl; cin>>roomNumber;}
+   while (roomNumber<0||roomNumber>5);	//numero della stanza (da 1 a 5)
+	      int wallNumber;	
+   do  {cout<<"Inserisci quale parete vuoi descrivere"<<endl;  cin>>wallNumber;}
+   while (wallNumber<0||wallNumber>5);
+	    string onWall[5];	
+		for(int i=0;i<5;i++)
+		{cout<<"Inserisci un oggetto su questa parete"<<endl;  cin>>onWall[i];}
+}
+	
+//funzione che visualizza il menu principale
+void menu()
+{
+	cout<<"Menu principale"<<endl;
+	string menu[3];
+	menu[0]="1)Configura Stanza";
+	menu[1]="2)Carica Vecchia Partita";
+	menu[2]="3)Nuovo Account";
+	scrittura(menu);
+	cout<<"Inserisci numero scelto"<<endl;
+	int numeroScelto;
+	do{cin>> numeroScelto;}
+	while (numeroScelto<0||numeroScelto>3);
+	if (numeroScelto=1)
+	{	
+		configuraStanzaDaComando();
+	}
+	else
+	{ 	
+		if(numeroScelto=2)
+		{	
+			cout<<"Carica vecchia partita"<<endl;
+ 		}   
+		else 
+		{  
+			if(numeroScelto=3)	
+			{	
+				cout<<"Inizializzo una nuova partita"<<endl;      
+			}
+		}
+    }
+}
+
+//funzione che crea il giocatore
+void createPlayer()
+{
+	string playerName;
+	int playerNumber;
+	cout<<"CREAZIONE DEL GIOCATORE"<<endl;
+	cout<<"inserisci il nome del giocatore"<<endl;
+	cin>>playerName;
+	cout<<"inserisci il numero del giocatore"<<endl;
+	cin>>playerNumber;
+	Player player1( playerName, playerNumber);
+}
+
+//funzione che stampa la scritta "Hai Vinto"
+//quando lo scopo del gioco è stato raggiunto 
+void youWin()
+{	 
+	cout<< "Hai Vinto!" <<endl;	
+}
+
 //------------------------PROGRAMMA PRINCIPALE-----------------------	
 
 int main(int argc, char** argv) 
 {
+	//dichiarazione variabili
+	
+	
 	//la variabile command decide cosa fare dopo la visualizzazione della schermata principale
 	//la funzione start restituisce la scelta dell'utente
 	//se restituisce 1 si deve visualizzare il menu principale
@@ -104,14 +181,13 @@ int main(int argc, char** argv)
 	command=start();
 	
 	//visualizzazione del menu
-	//il menu non è ancora pronto
-	//DA FINIRE
-	/* 
+	
 	if(command==1)
 	{ 
 		//apri il menu principale
+		menu();
 	}
-	*/
+	
 	
 	//visualizzazione del manuale
 	//se command è 2
@@ -120,15 +196,13 @@ int main(int argc, char** argv)
 		guide();	//chiamata della funzione guide che visualizza il manuale
 	}
 	
-	//inizio del gioco
-	//la configurazione della nuova partita non è ancora pronta
+	//INIZIO DEL GIOCO
+	//creazione del giocatore
+	createPlayer();
+	
+	//fine del gioco
+	//il gioco finisce quando si esce dalla stanza 5
 	//DA FINIRE
-	/*
-	if(command==3)
-	{
-		//inizia nuova partita
-	}
-	*/
 	
 	
 	return 0;
