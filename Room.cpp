@@ -1,3 +1,4 @@
+//classe stanza 
 #include<iostream>
 #include<string>
 #include<fstream>
@@ -10,18 +11,24 @@ class Room
 	private:
 		//attributi
 		int roomNumber;	//numero della stanza (da 1 a 5)
+		
+	public:
+		
+		//metto le pareti pubbliche in modo da poter fare il salvataggio
+		//su file anche all'esterno della classe
 		struct wall	//struttura che definisce le caratteristiche di una parete
 			{ 
 				int wallNumber;	//numero della parete
 				Object onWall[5];	//5 oggetti per ogni parete
 			};
+		
 		wall wall1;	//parete nord
 		wall wall2;	//parete est
 		wall wall3;	//paret sud
 		wall wall4;	//parete ovest
 		wall wall5;	//pavimento
 		
-	public:
+		
 		//costruttore
 		//Room()	//serve l'upload da file
 		
