@@ -1,6 +1,6 @@
 #include<iostream>
 #include<string>
-#include "Object.cpp"
+#include "TObject.cpp"
 
 using namespace std;
 const int mas=10;  //massima dimensione inventario=10
@@ -14,7 +14,7 @@ class Player
 	int watchedWall; //parete che il giocatore sta guardando (da 1 a 5)
 	//Object usedObject; //oggetto che il giocatore sta usando
 	int objectsInInventory;	//numero degli oggetti nell'inventario
-	Object inventory[mas]; //vettore di oggetti=inventario
+	TObject inventory[mas]; //vettore di oggetti=inventario
 	
   public:
  	//costruttore
@@ -78,7 +78,7 @@ class Player
 	
 	//metodo che ritorna gli oggetti nell'inventario
 	//ritorna la variabile inventory[mas]
-	Object getInventory()
+	TObject getInventory()
 	{ 
 		return inventory[mas];
 		
@@ -103,16 +103,16 @@ class Player
 	//metodo per PRENDERE UN OGGETTO
 	//metodo che aumenta il numero degli oggetti nell'inventario
 	//modifica la variabile objectsInInventory e inventory
-	void addObjectsInInventory(Object &added)
+	void addObjectsInInventory(TObject &added)
 	{	
-		inventory[objectsInInventory]= Object(added);
+		inventory[objectsInInventory]= TObject(added);
 		objectsInInventory+=1;
 	}
 	
 	//metodo per LASCIARE UN OGGETTO
 	//diminuisce il numero degli oggetti nell'inventario
 	//modifica la variabile objectsInInventory e inventory
-	void cutObjectsInInventory(Object cut, int cutPosition)
+	void cutObjectsInInventory(TObject cut, int cutPosition)
 	{ 
 		for(int i=cutPosition; i<objectsInInventory;i++)	//sposto tutti gli elementi indietro
 		{
@@ -123,7 +123,7 @@ class Player
 	}
 
 	//metodo per CAMBIARE STANZA
-	void changeRoom(Object key)		//passo l'ggetto (chiave)
+	void changeRoom(TObject key)		//passo l'ggetto (chiave)
 	{ 
 		if(key.openDoor())					//uso il metodo openDoor dell'oggetto
 		{

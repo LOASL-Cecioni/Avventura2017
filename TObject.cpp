@@ -3,7 +3,7 @@
 
 using namespace std;
 
-class Object
+class TObject
 {
 	private:
 		//attributi
@@ -15,12 +15,12 @@ class Object
 	
 	public:
 	 	//costruttore vuoto
-	 	Object()
+	 	TObject()
 	 	{
 			cleanObject();
 		}
 		//costruttore
-	 	Object (string in_objectName, int in_roomPosition, int in_wallPosition, string in_used, string in_effect)
+	 	TObject (string in_objectName, int in_roomPosition, int in_wallPosition, string in_used, string in_effect)
 	 	{	
 		 	objectName=in_objectName;	//assegna il nome dell'oggetto
 	 		roomPosition=in_roomPosition;	//assegna il numero della stanza in cui si trova
@@ -29,7 +29,7 @@ class Object
 	 		effect=in_effect;	//assegna la descrizione dell'effetto che ha l'oggetto dopo essere stato utilizzato	
 		}
 		//costruttore di copia
-		Object (Object &newObject)
+		TObject (TObject &newObject)
 		{
 			objectName=newObject.getObjectName();	//assegna il nome dell'oggetto
 	 		roomPosition=newObject.getRoomPosition();	//assegna il numero della stanza in cui si trova
@@ -79,7 +79,7 @@ class Object
 	
 		//metodo che modifica il nome 
 		//modifica la variabile name
-		void setName(string in_objectName)
+		void setObjectName(string in_objectName)
 		{
 			objectName=in_objectName;
 		}
@@ -113,7 +113,7 @@ class Object
 		}
 		
 		//metodo per DISTRUGGERE
-		void destroy(Object destroyedObject)	//passo l'oggetto che viene distrutto 
+		void destroy(TObject destroyedObject)	//passo l'oggetto che viene distrutto 
 		{	destroyedObject.objectName="0";
 			destroyedObject.roomPosition=0;			//per distruggere un oggetto lo azzero
 			destroyedObject.wallPosition=0;
