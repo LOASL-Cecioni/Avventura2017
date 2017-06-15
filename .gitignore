@@ -4,3 +4,4 @@ Avventura2017.o
 Avventura2017.dev
 Makefile.win
 *.layout
+*.o
