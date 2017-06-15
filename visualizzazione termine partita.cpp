@@ -1,5 +1,9 @@
- //quando lo scopo del gioco è stato raggiunto visualizza la scritta "Hai Vinto"
- #include <iostream>
+#include <iostream>
 using namespace std;
- main()
- {	 cout<< "Hai Vinto!" <<endl;	}
+
+//funzione che stampa la scritta "Hai Vinto"
+//quando lo scopo del gioco è stato raggiunto 
+void youWin()
+{	 
+	cout<< "Hai Vinto!" <<endl;	
+}
