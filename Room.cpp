@@ -2,7 +2,7 @@
 #include<iostream>
 #include<string>
 #include<fstream>
-#include "Object.cpp"
+#include "TObject.cpp"
 
 using namespace std;
 
@@ -19,7 +19,7 @@ class Room
 		struct wall	//struttura che definisce le caratteristiche di una parete
 			{ 
 				int wallNumber;	//numero della parete
-				Object onWall[5];	//5 oggetti per ogni parete
+				TObject onWall[5];	//5 oggetti per ogni parete
 			};
 		
 		wall wall1;	//parete nord
@@ -65,7 +65,7 @@ class Room
 		//passo come parametro il numero della della parete
 		//e il numero dell'oggetto che si vuole ritornare 
 		//(con un for si possono ottenre tutti e 5 gli oggetti sulla parete)
-		Object getObjectsOnWall (int in_wallNumber,int in_objectNumber)
+		TObject getObjectsOnWall (int in_wallNumber,int in_objectNumber)
 		{ 
 			if (wall1.wallNumber==in_wallNumber)
 			{

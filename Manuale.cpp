@@ -1,4 +1,4 @@
-#include "Avventura2017.h"
+
 #include <iostream>
 using namespace std;
 
@@ -18,7 +18,7 @@ void guide()
 		cout<< "digita 1 per visualizzare lo scopo del gioco"<<endl;
 		cout<< "digita 2 per visualizzare i movimenti possibili"<<endl;
 		cout<< "digita 3 per visualizzare i comandi per le interazioni con gli oggetti"<<endl;
-		cin>>scelta;
+		cin>>choice;
 	
 		if (choice==1)
 		{ 
