@@ -1,8 +1,11 @@
 #include "Player.cpp"
 #include "Room.cpp"
+#include "Avventura2017.h"
 #include <iostream>
 #include <string>
+#pragma once
 using namespace std;
+
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 //-------------------------------------FUNZIONI-----------------------------------------------------
@@ -78,8 +81,10 @@ void guide()
 			cout<< "	-puoi prendere un oggetto"<<endl;
 			cout<< "	-puoi gettare un oggetto"<<endl;
 			cout<< "	-puoi usare un oggetto su un altro per aprirlo o distruggerlo"<<endl;
-			cout<< "-------------------------------------------------------------"<<endl;
+			cout<< "------------------------------------------------------------------"<<endl;
 		}
+		cout<<"digita 1 per iniziare a giocare!!"<<endl;
+		cin>>state;
 	}
 }
 
@@ -135,6 +140,8 @@ void menu()
 	{	
 		cout<<"Inizializzo una nuova partita"<<endl;      
 	}
+	cout<<"digita 1 per iniziare a giocare!!"<<endl;
+	cin>>state;
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -161,10 +168,10 @@ void youWin()
 
 //------------------------------------------------------------------------------------------------------
 //funzione che inizializza le stanze
-void CreateRoom()
+void createRoom()
 {
 	//----------------------------------PRIMA STANZA------------------------------
-	Room bedroom;
+	bedroom;
 	bedroom.setRoomNumber(1);	//la camera è la prima stanza
 	//--------------------PARETE NORD (1)------------------------------
 	//inizializzo il primo oggetto
@@ -298,11 +305,11 @@ void CreateRoom()
 	bedroom.wall4.onWall[2].setEffect("fornisce l'acqua per riempire il secchio se aperto");
 	//inizializzo il quarto oggetto
 	//SECCHIO
-	bedroom.wall4.onWall[4].setObjectName("secchio");
-	bedroom.wall4.onWall[4].setRoomPosition(1);
-	bedroom.wall4.onWall[4].setWallPosition(4);
-	bedroom.wall4.onWall[4].setUsed("è legato a una fune che fornisce un martello");
-	bedroom.wall4.onWall[4].setEffect("fornisce un martello se riempito d'acqua");
+	bedroom.wall4.onWall[3].setObjectName("secchio");
+	bedroom.wall4.onWall[3].setRoomPosition(1);
+	bedroom.wall4.onWall[3].setWallPosition(4);
+	bedroom.wall4.onWall[3].setUsed("è legato a una fune che fornisce un martello");
+	bedroom.wall4.onWall[3].setEffect("fornisce un martello se riempito d'acqua");
 	//inizializzo il quinto oggetto
 	//MARTELLO
 	bedroom.wall4.onWall[4].setObjectName("martello");
@@ -348,7 +355,7 @@ void CreateRoom()
 	bedroom.wall5.onWall[4].setEffect("non produce alcun effetto");
 	
 	//------------------------------------------SECONDA STANZA-------------------------------------------
-	Room livingroom;
+	livingroom;
 	livingroom.setRoomNumber(2);	//il salotto è la seconda stanza
 	//parete NORD
 	//fiori 1
@@ -507,7 +514,7 @@ void CreateRoom()
 	livingroom.wall1.onWall[4].setEffect("la porta conduce a nuovi indizi");
 	
 	//----------------------------------------------TERZA STANZA-------------------------------------------------
-	Room kitchen;
+	kitchen;
 	kitchen.setRoomNumber(1);	//la cucina è la terza stanza
 	//--------------------PARETE NORD (1)------------------------------
 	//inizializzo il primo oggetto
@@ -694,7 +701,7 @@ void CreateRoom()
 	kitchen.wall5.onWall[4].setEffect("distrae il giocatore");
 	
 	//---------------------------------------------QUARTA STANZA-----------------------------------------------
-	Room studio;
+	studio;
 	studio.setRoomNumber(1);	//lo studio è la quarta stanza
 	//--------------------PARETE NORD (1)------------------------------
 	//inizializzo il primo oggetto
@@ -884,48 +891,89 @@ void CreateRoom()
 
 int main(int argc, char** argv)
 {
-	//dichiarazione variabili
-	int state=0;	//definisce lo stato in cui si trova il gioco
-	//state=0 quando si visualizza la schermata principale
-	
-	//la variabile command decide cosa fare dopo la visualizzazione della schermata principale
-	//la funzione start restituisce la scelta dell'utente
-	//se restituisce 1 si deve visualizzare il menu principale
-	//se restituisce 2 si deve visualizzare il manuale
-	//se restituisce 3 si inizia a giocare
-	if(state==0)
+	do
 	{
-		int command;
-		command=start();
+		//dichiarazione variabili
+		state=0;	//definisce lo stato in cui si trova il gioco
+		//state=0 quando si visualizza la schermata principale
+		
+		//la variabile command decide cosa fare dopo la visualizzazione della schermata principale
+		//la funzione start restituisce la scelta dell'utente
+		//se restituisce 1 si deve visualizzare il menu principale
+		//se restituisce 2 si deve visualizzare il manuale
+		//se restituisce 3 si inizia a giocare
+		while(state==0)
+		{
+			command=start();
+		//visualizzazione del menu
+		
+			if(command==1)
+			{ 
+				//apri il menu principale
+				menu();
+			}
+			
+			
+			//visualizzazione del manuale
+			//se command è 2
+			if (command==2)
+			{
+				guide();	//chiamata della funzione guide che visualizza il manuale
+			}
+		}
+		//INIZIO DEL GIOCO
+		//creazione del giocatore
+		//quando state=1
+		while(state==1)
+		{
+			cout<<"*-*-*-*-*-*-*-*-*-*-*-*INIZIO DEL GIOCO*-*-*-*-*-*-*-*-*-*-*"<<endl;
+			createPlayer(); 
+			cout<<"digita 2 per visualizzare la prima stanza"<<endl;
+			cin>>state;
+		}
+		
+		while(state==2)	//si entra nella prima stanza
+		{
+			createRoom();
+			//stampo la prima stanza 
+			cout<<"benvenuto nella prima stanza: LA CAMERA"<<endl;
+			cout<<"parete nord"<<endl;	//wall 1
+			for(int i=0; i<5; i++)
+			{
+				cout<<bedroom.wall1.onWall[i].getObjectName()<<endl;
+			}
+			cout<<"                                              "<<endl;
+			cout<<"parete est"<<endl;	//wall2
+			for(int i=0; i<5; i++)
+			{
+				cout<<bedroom.wall2.onWall[i].getObjectName()<<endl;
+			}
+			cout<<"                                              "<<endl;
+			cout<<"parete sud"<<endl;	//wall 3
+			for(int i=0; i<5; i++)
+			{
+				cout<<bedroom.wall3.onWall[i].getObjectName()<<endl;
+			}
+			cout<<"                                              "<<endl;
+			cout<<"parete ovest"<<endl;	//wall 4
+			for(int i=0; i<5; i++)
+			{
+				cout<<bedroom.wall4.onWall[i].getObjectName()<<endl;
+			}
+			cout<<"                                              "<<endl;
+			cout<<"pavimento"<<endl;	//wall 5
+			for(int i=0; i<5; i++)
+			{
+				cout<<bedroom.wall5.onWall[i].getObjectName()<<endl;
+			}
+		state=3;
+		}
 	}
-	//visualizzazione del menu
-	
-	if(command==1)
-	{ 
-		//apri il menu principale
-		menu();
-	}
-	
-	
-	//visualizzazione del manuale
-	//se command è 2
-	if (command==2)
-	{
-		guide();	//chiamata della funzione guide che visualizza il manuale
-	}
-	
-	//INIZIO DEL GIOCO
-	//creazione del giocatore
-	//quando state=1
-	if(state==1)
-	{
-		cout<<"*-*-*-*-*-*-*-*-*-*-*-*INIZIO DEL GIOCO*-*-*-*-*-*-*-*-*-*-*"<<endl;
-		createPlayer();
-	}
-	
+	while(state!=-1);
 	//fine del gioco
 	//il gioco finisce quando si esce dalla stanza 5
-	//DA FINIRE
+	//quando si esce dalla stanza 5 state diventa -1
+ 	youWin();
 	
 	
 	return 0;
