@@ -4,7 +4,7 @@
 using namespace std;
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-//---------------FUNZIONI-------------------
+//-------------------------------------FUNZIONI-----------------------------------------------------
 
 //funzione chiamata all'inizio del gioco
 //ritorna 1 per aprire il menu
@@ -17,7 +17,7 @@ int start()
 	cout<<"-*-*-*-*-*-*-*-*-*-* AVVENTURA 2017 *-*-*-*-*-*-*-*-*-*-*-*-"<<endl;
 	cout<<"-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-"<<endl;
 	cout<<"                                                             "<<endl;
-	cout<<" benvenuto nel gioco AVVENTURA 2017! "<<endl;
+	cout<<"benvenuto nel gioco AVVENTURA 2017! "<<endl;
 	cout<<"digita 'menu' per accedere al menu principale"<<endl;
 	cout<<"digita 'manuale' per accedere al manuale delle istruzioni"<<endl;
 	cin>>chosen;
@@ -36,7 +36,7 @@ int start()
 	} 
 }
 
-
+//-------------------------------------------------------------------------------------------
 //funzione che stampa e gersisce il manuale
 void guide()
 {
@@ -85,8 +85,8 @@ void guide()
 	}
 }
 
-//funzione che visualizza il menu principale
 
+//----------------------------------------------------------------------------------------------
 //funzione di scrittura
 //appartiene alla funzione menu
 void scrittura (string menu[])
@@ -125,19 +125,19 @@ void menu()
 	int numeroScelto;
 	do{cin>> numeroScelto;}
 	while (numeroScelto<0||numeroScelto>3);
-	if (numeroScelto=1)
+	if (numeroScelto==1)
 	{	
 		configuraStanzaDaComando();
 	}
 	else
 	{ 	
-		if(numeroScelto=2)
+		if(numeroScelto==2)
 		{	
 			cout<<"Carica vecchia partita"<<endl;
  		}   
 		else 
 		{  
-			if(numeroScelto=3)	
+			if(numeroScelto==3)	
 			{	
 				cout<<"Inizializzo una nuova partita"<<endl;      
 			}
@@ -145,6 +145,7 @@ void menu()
     }
 }
 
+//-------------------------------------------------------------------------------------------------
 //funzione che crea il giocatore
 void createPlayer()
 {
@@ -158,6 +159,7 @@ void createPlayer()
 	Player player1( playerName, playerNumber);
 }
 
+//----------------------------------------------------------------------------------------------------
 //funzione che stampa la scritta "Hai Vinto"
 //quando lo scopo del gioco è stato raggiunto 
 void youWin()
@@ -165,7 +167,7 @@ void youWin()
 	cout<< "Hai Vinto!" <<endl;	
 }
 
-//------------------------PROGRAMMA PRINCIPALE-----------------------	
+//----------------------------------------------PROGRAMMA PRINCIPALE----------------------------------------------------	
 
 int main(int argc, char** argv) 
 {
