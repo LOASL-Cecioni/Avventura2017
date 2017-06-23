@@ -883,6 +883,165 @@ void createRoom()
 	studio.wall5.onWall[4].setWallPosition(5);
 	studio.wall5.onWall[4].setUsed("si usa sulla porta");
 	studio.wall5.onWall[4].setEffect("apre la porta");//la porta si trova nella parete nord
+	
+	//-----------------------------------------QUINTA STANZA-------------------------------
+	bathroom;
+	bathroom.setRoomNumber(5);
+	//parete NORD
+	//fiori 1
+	bathroom.wall1.onWall[0].setObjectName("porta");
+	bathroom.wall1.onWall[0].setRoomPosition(5);
+	bathroom.wall1.onWall[0].setWallPosition(1);
+	bathroom.wall1.onWall[0].setUsed("si apre con la chiave");
+	bathroom.wall1.onWall[0].setEffect("passa alla prossima stanza");
+	//graffetta 2
+	bathroom.wall1.onWall[1].setObjectName("vater");
+	bathroom.wall1.onWall[1].setRoomPosition(5);
+	bathroom.wall1.onWall[1].setWallPosition(1);
+	bathroom.wall1.onWall[1].setUsed("vi è nascosta una chiave");
+	bathroom.wall1.onWall[1].setEffect("la chiave apre una cassetta");
+	//cassaforte 3
+	bathroom.wall1.onWall[2].setObjectName("chiave");
+	bathroom.wall1.onWall[2].setRoomPosition(5);
+	bathroom.wall1.onWall[2].setWallPosition(1);
+	bathroom.wall1.onWall[2].setUsed("la chiave apre una cassetta");
+	bathroom.wall1.onWall[2].setEffect("nella cassetta è nascosta una saponetta");
+	//cacciavite 4
+	bathroom.wall1.onWall[3].setObjectName("cassetta");
+	bathroom.wall1.onWall[3].setRoomPosition(5);
+	bathroom.wall1.onWall[3].setWallPosition(1);
+	bathroom.wall1.onWall[3].setUsed("nella cassetta è nascosta una saponetta");
+	bathroom.wall1.onWall[3].setEffect("sulla saponetta è inciso un codice");
+	//comodino 5
+	bathroom.wall1.onWall[4].setObjectName("saponetta");
+	bathroom.wall1.onWall[4].setRoomPosition(5);
+	bathroom.wall1.onWall[4].setWallPosition(1);
+	bathroom.wall1.onWall[4].setUsed("sulla saponetta è inciso un codice");
+	bathroom.wall1.onWall[4].setEffect("il codice apre una botola");
+    //parete EST
+	//quaderno 1
+	bathroom.wall2.onWall[0].setObjectName("codice");
+	bathroom.wall2.onWall[0].setRoomPosition(5);
+	bathroom.wall2.onWall[0].setWallPosition(2);
+	bathroom.wall2.onWall[0].setUsed("apre una botola");
+	bathroom.wall2.onWall[0].setEffect("nella botola è nascosto un computer");
+	//indizio 2
+	bathroom.wall2.onWall[1].setObjectName("botola");
+	bathroom.wall2.onWall[1].setRoomPosition(5);
+	bathroom.wall2.onWall[1].setWallPosition(2);
+	bathroom.wall2.onWall[1].setUsed("nella botola è nascosto un computer");
+	bathroom.wall2.onWall[1].setEffect("il computer ha al proprio interno un codice");
+	//cornice 3
+	bathroom.wall2.onWall[2].setObjectName("computer");
+	bathroom.wall2.onWall[2].setRoomPosition(5);
+	bathroom.wall2.onWall[2].setWallPosition(2);
+	bathroom.wall2.onWall[2].setUsed("il computer ha al proprio interno un codice");
+	bathroom.wall2.onWall[2].setEffect("il codice apre un programma");
+	//libro 4
+	bathroom.wall2.onWall[3].setObjectName("codice");
+	bathroom.wall2.onWall[3].setRoomPosition(5);
+	bathroom.wall2.onWall[3].setWallPosition(2);
+	bathroom.wall2.onWall[3].setUsed("il codice apre un programma");
+	bathroom.wall2.onWall[3].setEffect("il programma apre la foto dello specchio");
+	//segnalibro 5
+	bathroom.wall2.onWall[4].setObjectName("programma");
+	bathroom.wall2.onWall[4].setRoomPosition(5);
+	bathroom.wall2.onWall[4].setWallPosition(2);
+	bathroom.wall2.onWall[4].setUsed("il programma apre la foto di uno specchio");
+	bathroom.wall2.onWall[4].setEffect("lo specchio riflette l'immagine di uno shampoo");
+	// parete SUD
+	//computer 1
+	bathroom.wall3.onWall[0].setObjectName(" foto specchio");
+	bathroom.wall3.onWall[0].setRoomPosition(5);
+	bathroom.wall3.onWall[0].setWallPosition(3);
+	bathroom.wall3.onWall[0].setUsed("lo specchio riflette l'immagine di uno shampoo");
+	bathroom.wall3.onWall[0].setEffect("uno shampoo uguale è da ricercare nella stanza");
+	//lucchetto 2
+	bathroom.wall3.onWall[1].setObjectName("foto shampoo");
+	bathroom.wall3.onWall[1].setRoomPosition(5);
+	bathroom.wall3.onWall[1].setWallPosition(3);
+	bathroom.wall3.onWall[1].setUsed("uno shampoo uguale è da ricercare nella stanza");
+	bathroom.wall3.onWall[1].setEffect("svuotando lo shampoo si fa fuoriuscire una forcina ");
+	//armadio 3
+	bathroom.wall3.onWall[2].setObjectName("shampoo");
+	bathroom.wall3.onWall[2].setRoomPosition(5);
+	bathroom.wall3.onWall[2].setWallPosition(3);
+	bathroom.wall3.onWall[2].setUsed("svuotando lo shampoo fuoriesce una forcina");
+	bathroom.wall3.onWall[2].setEffect("la forcina apre un lucchetto");
+	//bottiglia 4
+	bathroom.wall3.onWall[3].setObjectName("forcina");
+	bathroom.wall3.onWall[3].setRoomPosition(5);
+	bathroom.wall3.onWall[3].setWallPosition(3);
+	bathroom.wall3.onWall[3].setUsed("la forcina apre un lucchetto");
+	bathroom.wall3.onWall[3].setEffect("il lucchetto aperto apre un diario");
+	//ingranaggio 5 
+	bathroom.wall3.onWall[4].setObjectName("lucchetto");
+	bathroom.wall3.onWall[4].setRoomPosition(5);
+	bathroom.wall3.onWall[4].setWallPosition(3);
+	bathroom.wall3.onWall[4].setUsed("il lucchetto apre un diario");
+	bathroom.wall3.onWall[4].setEffect("nel diario vi è un biglietto");
+	//parete OVEST
+	//carillon 1
+	bathroom.wall4.onWall[0].setObjectName("diario");
+	bathroom.wall4.onWall[0].setRoomPosition(5);
+	bathroom.wall4.onWall[0].setWallPosition(4);
+	bathroom.wall4.onWall[0].setUsed("nel diario vi è un biglietto");
+	bathroom.wall4.onWall[0].setEffect("sul biglietto è scritto il nome del prossimo indizio, cotone");
+	//melodia 2
+	bathroom.wall4.onWall[1].setObjectName("biglietto");
+	bathroom.wall4.onWall[1].setRoomPosition(5);
+	bathroom.wall4.onWall[1].setWallPosition(4);
+	bathroom.wall4.onWall[1].setUsed("sul biglietto è scitto il nome del prossimo indizio,cotone");
+	bathroom.wall4.onWall[1].setEffect("nel cotone è nascosto un sacchetto con della polverina");
+	//cuscino 3
+	bathroom.wall4.onWall[2].setObjectName("cotone");
+	bathroom.wall4.onWall[2].setRoomPosition(5);
+	bathroom.wall4.onWall[2].setWallPosition(4);
+	bathroom.wall4.onWall[2].setUsed("nel cotone è nascosto un sacchetto con della polverina");
+	bathroom.wall4.onWall[2].setEffect("la polverina buttata sul vero, crea una scritta, martello");
+	//martello 4
+	bathroom.wall4.onWall[3].setObjectName("polverina");
+	bathroom.wall4.onWall[3].setRoomPosition(5);
+	bathroom.wall4.onWall[3].setWallPosition(4);
+	bathroom.wall4.onWall[3].setUsed("la polverina buttata sul vetro, crea una scitta, martello");
+	bathroom.wall4.onWall[3].setEffect("il martello rompe il lavadino");
+	//salvadanaio 5
+	bathroom.wall4.onWall[4].setObjectName("martello");
+	bathroom.wall4.onWall[4].setRoomPosition(5);
+	bathroom.wall4.onWall[4].setWallPosition(4);
+	bathroom.wall4.onWall[4].setUsed("il martello rompe il lavandino");
+	bathroom.wall4.onWall[4].setEffect("nel lavandino è nascosto un pezzo di tessuto");
+	//pavimento
+	//lente 1
+	bathroom.wall5.onWall[0].setObjectName("lavandino");
+	bathroom.wall5.onWall[0].setRoomPosition(5);
+	bathroom.wall5.onWall[0].setWallPosition(5);
+	bathroom.wall5.onWall[0].setUsed("nel lavandino è nascosto un pezzo si tessuto");
+	bathroom.wall5.onWall[0].setEffect("il pezzo di tessuto appartiene al tappeto");
+	//occhiali 2
+	bathroom.wall5.onWall[1].setObjectName("pezzo di tessuto");
+	bathroom.wall5.onWall[1].setRoomPosition(5);
+	bathroom.wall5.onWall[1].setWallPosition(5);
+	bathroom.wall5.onWall[1].setUsed("il pezzo di tessuto appartiene al tappeto");
+	bathroom.wall5.onWall[1].setEffect("sotto il teppeto vi è un buco con una pinza");
+	//scritta sul muro , tappeto 3
+	bathroom.wall5.onWall[2].setObjectName("tappeto");
+	bathroom.wall5.onWall[2].setRoomPosition(5);
+	bathroom.wall5.onWall[2].setWallPosition(5);
+	bathroom.wall5.onWall[2].setUsed("sotto il teppeto vi è una pinza");
+	bathroom.wall5.onWall[2].setEffect("la pinza serve a svitare il tubo dell'acqua del lavandino rotto'");
+	//mattonella 4 
+	bathroom.wall5.onWall[3].setObjectName("pinza");
+	bathroom.wall5.onWall[3].setRoomPosition(5);
+	bathroom.wall5.onWall[3].setWallPosition(5);
+	bathroom.wall5.onWall[3].setUsed("la pinza serve a svitare il tubo dell'acqua del lavandino rotto, dalla quale fuoriesce la chiave");
+	bathroom.wall5.onWall[3].setEffect("la chiave apre la porta");
+	//chiave 5
+	bathroom.wall5.onWall[4].setObjectName("chiave");
+	bathroom.wall5.onWall[4].setRoomPosition(5);
+	bathroom.wall5.onWall[4].setWallPosition(5);
+	bathroom.wall5.onWall[4].setUsed("la chiave apre la porta");
+	bathroom.wall5.onWall[4].setEffect("la porta conduce a nuovi indizi");
 }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -966,7 +1125,10 @@ int main(int argc, char** argv)
 			{
 				cout<<bedroom.wall5.onWall[i].getObjectName()<<endl;
 			}
-		state=3;
+		state=3; //si passa alla seconda stanza !SOLO SE APRE LA PORTA!
+		//DA FINIRE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		//continuare così fino alla quinta stanza 
+		//quando si apre la porta dell quinta stanza fare state=-1
 		}
 	}
 	while(state!=-1);

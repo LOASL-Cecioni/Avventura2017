@@ -10,3 +10,4 @@ Room bedroom;
 Room livingroom;
 Room kitchen;
 Room studio;
+Room bathroom;
