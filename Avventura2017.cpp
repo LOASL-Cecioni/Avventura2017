@@ -1096,47 +1096,605 @@ int main(int argc, char** argv)
 			createRoom();
 			//stampo la prima stanza 
 			cout<<"benvenuto nella prima stanza: LA CAMERA"<<endl;
+			/*cout<<"questo è il tuo inventario al momento"<<endl;
+			TObject getInventory();
+			cout<< getInventory <<endl;*/
 			cout<<"parete nord"<<endl;	//wall 1
+			cout<<"                                              "<<endl;
 			for(int i=0; i<5; i++)
 			{
 				cout<<bedroom.wall1.onWall[i].getObjectName()<<endl;
 			}
 			cout<<"                                              "<<endl;
 			cout<<"parete est"<<endl;	//wall2
+			cout<<"                                              "<<endl;
 			for(int i=0; i<5; i++)
 			{
 				cout<<bedroom.wall2.onWall[i].getObjectName()<<endl;
 			}
 			cout<<"                                              "<<endl;
 			cout<<"parete sud"<<endl;	//wall 3
+			cout<<"                                              "<<endl;
 			for(int i=0; i<5; i++)
 			{
 				cout<<bedroom.wall3.onWall[i].getObjectName()<<endl;
 			}
 			cout<<"                                              "<<endl;
 			cout<<"parete ovest"<<endl;	//wall 4
+			cout<<"                                              "<<endl;
 			for(int i=0; i<5; i++)
 			{
 				cout<<bedroom.wall4.onWall[i].getObjectName()<<endl;
 			}
 			cout<<"                                              "<<endl;
 			cout<<"pavimento"<<endl;	//wall 5
+			cout<<"                                              "<<endl;
 			for(int i=0; i<5; i++)
 			{
 				cout<<bedroom.wall5.onWall[i].getObjectName()<<endl;
 			}
-		state=3; //si passa alla seconda stanza !SOLO SE APRE LA PORTA!
-		//DA FINIRE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		//continuare così fino alla quinta stanza 
-		//quando si apre la porta dell quinta stanza fare state=-1
-		}
+			
+		do{ 
+		    do{                                            //ciclo per vedere se l'oggetto che ha cercato è nella lista degli oggetti
+			bool objectFound = false;
+			string objectInUse;
+			cout<<"Quale oggetto vuoi usare?"<<endl;
+			cin>>objectInUse;
+			for(int i=0; i<5; i++)
+					{    
+						if (objectInUse==bedroom.wall1.onWall)
+						{
+							for(int i=0; i<5; i++)
+							{	
+								if(objectInUse==bedroom.wall1.onWall[i].getObjectName())
+								objectFound = true;
+							}
+						}
+					    if(objectInUse==bedroom.wall2)
+					    {
+						    for(int i=0; i<5; i++)
+					        {
+						        if(objectInUse==bedroom.wall2.onWall[i].getObjectName())
+					            objectFound = true;
+							}
+					    }
+					    if (objectInUse==bedroom.wall3)
+						{
+							for(int i=0; i<5; i++)
+							{	
+								if(objectInUse==bedroom.wall3.onWall[i].getObjectName())
+								objectFound = true;
+							}
+					
+					    }
+					    if(objectInUse==bedroom.wall4)
+					    {
+						    for(int i=0; i<5; i++)
+					        {
+						        if(objectInUse==bedroom.wall4.onWall[i].getObjectName())
+					            objectFound = true;
+							}
+					    }
+					    if(objectInUse==bedroom.wall5)
+					    {
+						    for(int i=0; i<5; i++)
+					        {
+						        if(objectInUse==bedroom.wall5.onWall[i].getObjectName())
+					            objectFound = true;
+							}
+					    }
+		            }
+		while(objectFound==false)           //se restituisce chiave su porta può passare alla stanza seguente    
+		 
+		 
+	cout<<"Cosa vuoi fare con questo oggetto?"<<endl;
+	string azioni[4];
+	azioni[0]="1) Usa questo oggetto per distruggerne un altro";
+	azioni[1]="2) Usa questo oggetto per aprirne un altro";
+	azioni[2]="3) Metti in inventario";
+	azioni[3]="4) Getta questo oggetto";
+	scrittura(azioni);
+	cout<<"Inserisci numero scelto"<<endl;
+	int numeroSelezionato;
+	do{cin>> numeroSelezionato;}
+	while (numeroSelezionato<0||numeroSelezionato>4);
+	if (numeroSelezionato==1)
+	{	
+		objectFound.destroy();
 	}
-	while(state!=-1);
-	//fine del gioco
-	//il gioco finisce quando si esce dalla stanza 5
-	//quando si esce dalla stanza 5 state diventa -1
- 	youWin();
+	else if(numeroSelezionato==2)
+	{	
+		objectFound.openDoor();
+ 	}   
+	else if(numeroSelezionato==3)	
+	{	
+		objectFound.addObjectsInInventory();      
+	}
+	else if(numeroSelezionato==4)
+	{
+		objectFound.cutObjectsInInventory();
+	}
+			
+		void useKey();
+		state=3; 
+		
+			createRoom();
+			//stampo la seconda stanza 
+			cout<<"benvenuto nella seconda stanza: IL SALOTTO"<<endl;
+			cout<<"questo è il tuo inventario al momento"<<endl;
+			TObject getInventory();
+			cout<<getInventory <<endl;
+			cout<<"parete nord"<<endl;	//wall 1
+			for(int i=0; i<5; i++)
+			{
+				cout<<livingroom.wall1.onWall[i].getObjectName()<<endl;
+			}
+			cout<<"                                              "<<endl;
+			cout<<"parete est"<<endl;	//wall2
+			for(int i=0; i<5; i++)
+			{
+				cout<<livingroom.wall2.onWall[i].getObjectName()<<endl;
+			}
+			cout<<"                                              "<<endl;
+			cout<<"parete sud"<<endl;	//wall 3
+			for(int i=0; i<5; i++)
+			{
+				cout<<livingroom.wall3.onWall[i].getObjectName()<<endl;
+			}
+			cout<<"                                              "<<endl;
+			cout<<"parete ovest"<<endl;	//wall 4
+			for(int i=0; i<5; i++)
+			{
+				cout<<livingroom.wall4.onWall[i].getObjectName()<<endl;
+			}
+			cout<<"                                              "<<endl;
+			cout<<"pavimento"<<endl;	//wall 5
+			for(int i=0; i<5; i++)
+			{
+				cout<<livingroom.wall5.onWall[i].getObjectName()<<endl;
+			}
+			
+	    do{                                            //ciclo per vedere se l'oggetto che ha cercato è nella lista degli oggetti
+			bool objectFound = false;
+			string objectInUse;
+			cout<<"Quale oggetto vuoi usare?"<<endl;
+			cin>>objectInUse;
+			for(int i=0; i<5; i++)
+					{    
+						if (objectInUse==livingroom.wall1.onWall)
+						{
+							for(int i=0; i<5; i++)
+							{	
+								if(objectInUse==livingroom.wall1.onWall[i].getObjectName())
+								objectFound = true;
+							}
+						}
+					    if(objectInUse==livingroom.wall2)
+					    {
+						    for(int i=0; i<5; i++)
+					        {
+						        if(objectInUse==livingroom.wall2.onWall[i].getObjectName())
+					            objectFound = true;
+							}
+					    }
+					    if (objectInUse==livingroom.wall3)
+						{
+							for(int i=0; i<5; i++)
+							{	
+								if(objectInUse==livingroom.wall3.onWall[i].getObjectName())
+								objectFound = true;
+							}
+					
+					    }
+					    if(objectInUse==livingroom.wall4)
+					    {
+						    for(int i=0; i<5; i++)
+					        {
+						        if(objectInUse==livingroom.wall4.onWall[i].getObjectName())
+					            objectFound = true;
+							}
+					    }
+					    if(objectInUse==livingroom.wall5)
+					    {
+						    for(int i=0; i<5; i++)
+					        {
+						        if(objectInUse==livingroom.wall5.onWall[i].getObjectName())
+					            objectFound = true;
+							}
+					    }
+		            }
+		while(objectFound==false)           //se restituisce chiave su porta può passare alla stanza seguente    
+		 
+		 
+	cout<<"Cosa vuoi fare con questo oggetto?"<<endl;
+	string azioni[4];
+	azioni[0]="1) Usa questo oggetto per distruggerne un altro";
+	azioni[1]="2) Usa questo oggetto per aprirne un altro";
+	azioni[2]="3) Metti in inventario";
+	azioni[3]="4) Getta questo oggetto";
+	scrittura(azioni);
+	cout<<"Inserisci numero scelto"<<endl;
+	int numeroSelezionato;
+	do{cin>> numeroSelezionato;}
+	while (numeroSelezionato<0||numeroSelezionato>4);
+	if (numeroSelezionato==1)
+	{	
+		objectFound.destroy();
+	}
+	else if(numeroSelezionato==2)
+	{	
+		objectFound.openDoor();
+ 	}   
+	else if(numeroSelezionato==3)	
+	{	
+		objectFound.addObjectsInInventory();      
+	}
+	else if(numeroSelezionato==4)
+	{
+		objectFound.cutObjectsInInventory();
+    }
+
+		void useKey();
+		state=4; 
+		
+			createRoom();
+			//stampo la terza stanza 
+			cout<<"benvenuto nella terza stanza: LA CUCINA"<<endl;
+			cout<<"questo è il tuo inventario al momento"<<endl;
+			TObject getInventory();
+			cout<< getInventory <<endl;
+			cout<<"parete nord"<<endl;	//wall 1
+			for(int i=0; i<5; i++)
+			{
+				cout<<kitchen.wall1.onWall[i].getObjectName()<<endl;
+			}
+			cout<<"                                              "<<endl;
+			cout<<"parete est"<<endl;	//wall2
+			for(int i=0; i<5; i++)
+			{
+				cout<<kitchen.wall2.onWall[i].getObjectName()<<endl;
+			}
+			cout<<"                                              "<<endl;
+			cout<<"parete sud"<<endl;	//wall 3
+			for(int i=0; i<5; i++)
+			{
+				cout<<kitchen.wall3.onWall[i].getObjectName()<<endl;
+			}
+			cout<<"                                              "<<endl;
+			cout<<"parete ovest"<<endl;	//wall 4
+			for(int i=0; i<5; i++)
+			{
+				cout<<kitchen.wall4.onWall[i].getObjectName()<<endl;
+			}
+			cout<<"                                              "<<endl;
+			cout<<"pavimento"<<endl;	//wall 5
+			for(int i=0; i<5; i++)
+			{
+				cout<<kitchen.wall5.onWall[i].getObjectName()<<endl;
+			}
+			
+		    do{                                            //ciclo per vedere se l'oggetto che ha cercato è nella lista degli oggetti
+			bool objectFound = false;
+			string objectInUse;
+			cout<<"Quale oggetto vuoi usare?"<<endl;
+			cin>>objectInUse;
+			for(int i=0; i<5; i++)
+					{    
+						if (objectInUse==kitchen.wall1.onWall)
+						{
+							for(int i=0; i<5; i++)
+							{	
+								if(objectInUse==kitchen.wall1.onWall[i].getObjectName())
+								objectFound = true;
+							}
+						}
+					    if(objectInUse==kitchen.wall2)
+					    {
+						    for(int i=0; i<5; i++)
+					        {
+						        if(objectInUse==kitchen.wall2.onWall[i].getObjectName())
+					            objectFound = true;
+							}
+					    }
+					    if (objectInUse==kitchen.wall3)
+						{
+							for(int i=0; i<5; i++)
+							{	
+								if(objectInUse==kitchen.wall3.onWall[i].getObjectName())
+								objectFound = true;
+							}
+					
+					    }
+					    if(objectInUse==kitchen.wall4)
+					    {
+						    for(int i=0; i<5; i++)
+					        {
+						        if(objectInUse==kitchen.wall4.onWall[i].getObjectName())
+					            objectFound = true;
+							}
+					    }
+					    if(objectInUse==kitchen.wall5)
+					    {
+						    for(int i=0; i<5; i++)
+					        {
+						        if(objectInUse==kitchen.wall5.onWall[i].getObjectName())
+					            objectFound = true;
+							}
+					    }
+		            }
+		while(objectFound==false)           //se restituisce chiave su porta può passare alla stanza seguente    
+		 
+		 
+	cout<<"Cosa vuoi fare con questo oggetto?"<<endl;
+	string azioni[4];
+	azioni[0]="1) Usa questo oggetto per distruggerne un altro";
+	azioni[1]="2) Usa questo oggetto per aprirne un altro";
+	azioni[2]="3) Metti in inventario";
+	azioni[3]="4) Getta questo oggetto";
+	scrittura(azioni);
+	cout<<"Inserisci numero scelto"<<endl;
+	int numeroSelezionato;
+	do{cin>> numeroSelezionato;}
+	while (numeroSelezionato<0||numeroSelezionato>4);
+	if (numeroSelezionato==1)
+	{	
+		objectFound.destroy();
+	}
+	else if(numeroSelezionato==2)
+	{	
+		objectFound.openDoor();
+ 	}   
+	else if(numeroSelezionato==3)	
+	{	
+		objectFound.addObjectsInInventory();      
+	}
+	else if(numeroSelezionato==4)
+	{
+		objectFound.cutObjectsInInventory();
+	}			
 	
-	
-	return 0;
+	void useKey();
+		state=5; 
+		
+		createRoom();
+			//stampo la quarta stanza 
+			cout<<"benvenuto nella quarta stanza: LO STUDIO"<<endl;
+			cout<<"questo è il tuo inventario al momento"<<endl;
+			TObject getInventory();
+			cout<< getInventory <<endl;
+			cout<<"parete nord"<<endl;	//wall 1
+			for(int i=0; i<5; i++)
+			{
+				cout<<studio.wall1.onWall[i].getObjectName()<<endl;
+			}
+			cout<<"                                              "<<endl;
+			cout<<"parete est"<<endl;	//wall2
+			for(int i=0; i<5; i++)
+			{
+				cout<<studio.wall2.onWall[i].getObjectName()<<endl;
+			}
+			cout<<"                                              "<<endl;
+			cout<<"parete sud"<<endl;	//wall 3
+			for(int i=0; i<5; i++)
+			{
+				cout<<studio.wall3.onWall[i].getObjectName()<<endl;
+			}
+			cout<<"                                              "<<endl;
+			cout<<"parete ovest"<<endl;	//wall 4
+			for(int i=0; i<5; i++)
+			{
+				cout<<studio.wall4.onWall[i].getObjectName()<<endl;
+			}
+			cout<<"                                              "<<endl;
+			cout<<"pavimento"<<endl;	//wall 5
+			for(int i=0; i<5; i++)
+			{
+				cout<<studio.wall5.onWall[i].getObjectName()<<endl;
+			}
+			
+		    do{                                            //ciclo per vedere se l'oggetto che ha cercato è nella lista degli oggetti
+			bool objectFound = false;
+			string objectInUse;
+			cout<<"Quale oggetto vuoi usare?"<<endl;
+			cin>>objectInUse;
+			for(int i=0; i<5; i++)
+					{    
+						if (objectInUse==studio.wall1.onWall)
+						{
+							for(int i=0; i<5; i++)
+							{	
+								if(objectInUse==studio.wall1.onWall[i].getObjectName())
+								objectFound = true;
+							}
+						}
+					    if(objectInUse==studio.wall2)
+					    {
+						    for(int i=0; i<5; i++)
+					        {
+						        if(objectInUse==studio.wall2.onWall[i].getObjectName())
+					            objectFound = true;
+							}
+					    }
+					    if (objectInUse==studio.wall3)
+						{
+							for(int i=0; i<5; i++)
+							{	
+								if(objectInUse==studio.wall3.onWall[i].getObjectName())
+								objectFound = true;
+							}
+					
+					    }
+					    if(objectInUse==studio.wall4)
+					    {
+						    for(int i=0; i<5; i++)
+					        {
+						        if(objectInUse==studio.wall4.onWall[i].getObjectName())
+					            objectFound = true;
+							}
+					    }
+					    if(objectInUse==studio.wall5)
+					    {
+						    for(int i=0; i<5; i++)
+					        {
+						        if(objectInUse==studio.wall5.onWall[i].getObjectName())
+					            objectFound = true;
+							}
+					    }
+		            }
+		while(objectFound==false)           //se restituisce chiave su porta può passare alla stanza seguente    
+		 
+		 
+	cout<<"Cosa vuoi fare con questo oggetto?"<<endl;
+	string azioni[4];
+	azioni[0]="1) Usa questo oggetto per distruggerne un altro";
+	azioni[1]="2) Usa questo oggetto per aprirne un altro";
+	azioni[2]="3) Metti in inventario";
+	azioni[3]="4) Getta questo oggetto";
+	scrittura(azioni);
+	cout<<"Inserisci numero scelto"<<endl;
+	int numeroSelezionato;
+	do{cin>> numeroSelezionato;}
+	while (numeroSelezionato<0||numeroSelezionato>4);
+	if (numeroSelezionato==1)
+	{	
+		objectFound.destroy();
+	}
+	else if(numeroSelezionato==2)
+	{	
+		objectFound.openDoor();
+ 	}   
+	else if(numeroSelezionato==3)	
+	{	
+		objectFound.addObjectsInInventory();      
+	}
+	else if(numeroSelezionato==4)
+	{
+		objectFound.cutObjectsInInventory();
+	}
+		void useKey();
+		state=6; 
+			
+			createRoom();
+			//stampo la quinta stanza 
+			cout<<"benvenuto nella quinta stanza: IL BAGNO"<<endl;
+			cout<<"questo è il tuo inventario al momento"<<endl;
+			TObject getInventory();
+			cout<< getInventory <<endl;
+
+			cout<<"parete nord"<<endl;	//wall 1
+			for(int i=0; i<5; i++)
+			{
+				cout<<bathroom.wall1.onWall[i].getObjectName()<<endl;
+			}
+			cout<<"                                              "<<endl;
+			cout<<"parete est"<<endl;	//wall2
+			for(int i=0; i<5; i++)
+			{
+				cout<<bathroom.wall2.onWall[i].getObjectName()<<endl;
+			}
+			cout<<"                                              "<<endl;
+			cout<<"parete sud"<<endl;	//wall 3
+			for(int i=0; i<5; i++)
+			{
+				cout<<bathroom.wall3.onWall[i].getObjectName()<<endl;
+			}
+			cout<<"                                              "<<endl;
+			cout<<"parete ovest"<<endl;	//wall 4
+			for(int i=0; i<5; i++)
+			{
+				cout<<bathroom.wall4.onWall[i].getObjectName()<<endl;
+			}
+			cout<<"                                              "<<endl;
+			cout<<"pavimento"<<endl;	//wall 5
+			for(int i=0; i<5; i++)
+			{
+				cout<<bathroom.wall5.onWall[i].getObjectName()<<endl;
+			} 
+			
+			do{                                            //ciclo per vedere se l'oggetto che ha cercato è nella lista degli oggetti
+			bool objectFound = false;
+			string objectInUse;
+			cout<<"Quale oggetto vuoi usare?"<<endl;
+			cin>>objectInUse;
+			for(int i=0; i<5; i++)
+					{    
+						if (objectInUse==bathroom.wall1.onWall)
+						{
+							for(int i=0; i<5; i++)
+							{	
+								if(objectInUse==bathroom.wall1.onWall[i].getObjectName())
+								objectFound = true;
+							}
+						}
+					    if(objectInUse==bathroom.wall2)
+					    {
+						    for(int i=0; i<5; i++)
+					        {
+						        if(objectInUse==bathroom.wall2.onWall[i].getObjectName())
+					            objectFound = true;
+							}
+					    }
+					    if (objectInUse==bathroom.wall3)
+						{
+							for(int i=0; i<5; i++)
+							{	
+								if(objectInUse==bathroom.wall3.onWall[i].getObjectName())
+								objectFound = true;
+							}
+					
+					    }
+					    if(objectInUse==bathroom.wall4)
+					    {
+						    for(int i=0; i<5; i++)
+					        {
+						        if(objectInUse==bathroom.wall4.onWall[i].getObjectName())
+					            objectFound = true;
+							}
+					    }
+					    if(objectInUse==bathroom.wall5)
+					    {
+						    for(int i=0; i<5; i++)
+					        {
+						        if(objectInUse==bathroom.wall5.onWall[i].getObjectName())
+					            objectFound = true;
+							}
+					    }
+		            }
+		while(objectFound==false)           //se restituisce chiave su porta può passare alla stanza seguente    
+		 
+		 
+	cout<<"Cosa vuoi fare con questo oggetto?"<<endl;
+	string azioni[4];
+	azioni[0]="1) Usa questo oggetto per distruggerne un altro";
+	azioni[1]="2) Usa questo oggetto per aprirne un altro";
+	azioni[2]="3) Metti in inventario";
+	azioni[3]="4) Getta questo oggetto";
+	scrittura(azioni);
+	cout<<"Inserisci numero scelto"<<endl;
+	int numeroSelezionato;
+	do{cin>> numeroSelezionato;}
+	while (numeroSelezionato<0||numeroSelezionato>4);
+	if (numeroSelezionato==1)
+	{	
+		objectFound.destroy();
+	}
+	else if(numeroSelezionato==2)
+	{	
+		objectFound.openDoor();
+ 	}   
+	else if(numeroSelezionato==3)	
+	{	
+		objectFound.addObjectsInInventory();      
+	}
+	else if(numeroSelezionato==4)
+	{
+		objectFound.cutObjectsInInventory();
+	}
+	    	
+    state=-1; 
+	}
+    }
+	while(state!=-1);                   //fine del gioco
+	youWin();							//il gioco finisce quando si esce dalla stanza 5
+	return 0;							//quando si esce dalla stanza 5 state diventa -1
 }

@@ -137,7 +137,12 @@ class TObject
 			wallPosition=0;
 			used="0";
 			effect="0";
-			
 		}
+		
+		//metodo per usare la chiave
+		void useKey(TObject used)
+		{if (used.getUsed()=="porta")
+		    bool openDoor(); 
+	    }
 			
 };
